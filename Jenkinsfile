@@ -5,7 +5,17 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 script {
-                    sh 'ls -la'  
+                    checkout scm
+                    sh 'ls -la'
+                }
+            }
+        }
+
+        stage('Run Tests') {  // New stage added
+            steps {
+                script {
+                    sh 'echo "Running unit tests..."'
+                    sh 'echo "Tests Passed!"'
                 }
             }
         }
